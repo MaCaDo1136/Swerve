@@ -37,15 +37,15 @@ public final class Constants {
                 public static final int CANCoderID3 = 2;
                 public static final int CANCoderID4 = 3;
 
-                public static final int kFrontLeftDriveMotorPort = 4;
-                public static final int kBackLeftDriveMotorPort = 5;
-                public static final int kFrontRightDriveMotorPort = 6;
-                public static final int kBackRightDriveMotorPort = 7;
+                public static final int kFrontLeftDriveMotorId = 11;
+                public static final int kBackLeftDriveMotorId = 8;
+                public static final int kFrontRightDriveMotorId = 2;
+                public static final int kBackRightDriveMotorId = 5;
 
-                public static final int kFrontLeftSteeringMotorPort = 8;
-                public static final int kBackLeftSteeringMotorPort = 9;
-                public static final int kFrontRightSteeringMotorPort = 10;
-                public static final int kBackRightSteeringMotorPort = 11;
+                public static final int kFrontLeftSteeringMotorId = 10;
+                public static final int kBackLeftSteeringMotorId = 7;
+                public static final int kFrontRightSteeringMotorId = 1;
+                public static final int kBackRightSteeringMotorId = 4;
 
                 public static final boolean kFrontLeftSteeringEncoderReversed = true;
                 public static final boolean kBackLeftSteeringEncoderReversed = true;
@@ -57,10 +57,10 @@ public final class Constants {
                 public static final boolean kFrontRightDriveEncoderReversed = false;
                 public static final boolean kBackRightDriveEncoderReversed = false;
 
-                public static final int kFrontLeftDriveAbsoluteEncoderPort = 12;
-                public static final int kBackLeftDriveAbsoluteEncoderPort = 13;
-                public static final int kFrontRightDriveAbsoluteEncoderPort = 14;
-                public static final int kBackRightDriveAbsoluteEncoderPort = 15;
+                public static final int kFrontLeftDriveAbsoluteEncoderId = 12;
+                public static final int kBackLeftDriveAbsoluteEncoderId = 9;
+                public static final int kFrontRightDriveAbsoluteEncoderId = 3;
+                public static final int kBackRightDriveAbsoluteEncoderId = 6;
 
                 public static final boolean kFrontLeftDriveAbsoluteEncoderReversed = false;
                 public static final boolean kBackLeftDriveAbsoluteEncoderReversed = false;
@@ -99,12 +99,14 @@ public final class Constants {
                                                 kMaxAngularAccelerationRadiansPerSecondSquared);
         }
         //constantes del brazo
-        public static final class Brazo {
-
+        public static final class BrazoConstants {
+                public static final int kBrazoMotorId = 17;
                 public static final int CANCoderID5 = 16;
-                public static final int kBrazoMotorPort = 17;
+                public static final int kBrazoAbsoluteEncoderId = 18;
 
-                public static final int kBrazoEncoderPort = 18;
+                public static final double kPBrazo = 0.1;
+
+                public static final boolean absoluteEncoderReversedBrazo = false;
 
 
         }
