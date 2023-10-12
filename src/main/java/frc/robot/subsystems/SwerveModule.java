@@ -15,13 +15,15 @@ import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.ModuleConstants;
 
 public class SwerveModule {
+    
+    private final int moduleNumber;
+    private final String moduleName;
 
     private final CANSparkMax driveMotor;
     private final CANSparkMax steeringMotor;
   
     private final RelativeEncoder driveEncoder;
     private final RelativeEncoder steeringEncoder;
-    
     private final CANCoder encoder1;
 
     private final PIDController steeringPIDController;
@@ -31,8 +33,10 @@ public class SwerveModule {
     private final double absoluteEncoderOffsetRad; 
 
 
-    public SwerveModule(int driveMotorId, int steeringMotorId, boolean driveMotorReversed, boolean steeringMotorReversed, int absoluteEncoderId, double absoluteEncoderOffset, boolean absoluteEncoderReversed, int enconder) {
-    
+    public SwerveModule(int moduleNumber, String moduleName, int driveMotorId, int steeringMotorId, boolean driveMotorReversed, boolean steeringMotorReversed, int absoluteEncoderId, double absoluteEncoderOffset, boolean absoluteEncoderReversed, int enconderId) {
+        
+        this.moduleNumber = moduleNumber;
+        this.moduleName = moduleName;
      
         this.absoluteEncoderOffsetRad = absoluteEncoderOffset;
         this.absoluteEncoderReversed = absoluteEncoderReversed;
@@ -44,7 +48,7 @@ public class SwerveModule {
         driveMotor.setInverted(driveMotorReversed);
         steeringMotor.setInverted(steeringMotorReversed);
 
-        encoder1 = new CANCoder(enconder);
+        encoder1 = new CANCoder(enconderId);
 
         driveEncoder = driveMotor.getEncoder();
         steeringEncoder = steeringMotor.getEncoder();
@@ -73,16 +77,13 @@ public class SwerveModule {
     public double getSteeringVelocity() {
         return steeringEncoder.getVelocity();
     }
-    public double getAbsoluteEncoderRad() {
-        double angle = absoluteEncoder.getVoltage() / RobotController.getVoltage5V();
-        angle *= 2.0 *Math.PI;
-        angle -= absoluteEncoderOffsetRad;
-        return angle * (absoluteEncoderReversed ? -1.0 : 1.0);
+    public double getAbsoluteEncoderDegrees() {
+        return encoder1.getAbsolutePosition();
     }
     //Reseteo de encoders
     public void resetEncoders() {
-        driveEncoder.setPosition(0);
-        steeringEncoder.setPosition(getAbsoluteEncoderRad());
+        driveEncoder.setPosition(0);    
+        steeringEncoder.setPosition(getAbsoluteEncoderDegrees());
     }
     //PID
     public SwerveModuleState getState() { 
@@ -99,7 +100,7 @@ public class SwerveModule {
         state = SwerveModuleState.optimize(state, getState().angle);
         
         driveMotor.set(state.speedMetersPerSecond / DriveConstants.kPhysicalMaxSpeedMetersPerSecond);
-        steeringMotor.set(steeringPIDController.calculate(getSteeringPosition(), state.angle.getRadians()));
+        steeringMotor.set(steeringPIDController.calculate(getSteeringPosition(), state.angle.getDegrees()));
         //en la siguiente linea le pique a: add cast to 'absoluteEncoder' si no jala, nomas es de quitar: ((edu.wpi.first.wpilibj.AnalogInput) absoluteEncoder) y poner solo: absoluteEncoder
         SmartDashboard.putString("Swerve[" + ((edu.wpi.first.wpilibj.AnalogInput) absoluteEncoder).getChannel() + "] state", state.toString());
     }

@@ -1,7 +1,6 @@
 package frc.robot.subsystems;
 
 import com.kauailabs.navx.frc.AHRS;
-
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
@@ -12,41 +11,49 @@ import frc.robot.Constants.DriveConstants;
 
 public class SwerveSubsystem extends SubsystemBase {
     public static final SwerveModule frontLeft = new SwerveModule(
-            DriveConstants.kFrontLeftDriveMotorPort,
-            DriveConstants.kFrontLeftSteeringMotorPort,
+            4,
+            "Front Left", 
+            DriveConstants.kFrontLeftDriveMotorId,
+            DriveConstants.kFrontLeftSteeringMotorId, 
             DriveConstants.kFrontLeftDriveEncoderReversed,
             DriveConstants.kFrontLeftSteeringEncoderReversed,
-            DriveConstants.kFrontLeftDriveAbsoluteEncoderPort,
+            DriveConstants.kFrontLeftDriveAbsoluteEncoderId,
             DriveConstants.kFrontLeftDriveAbsoluteEncoderOffsetRad,
             DriveConstants.kFrontLeftDriveAbsoluteEncoderReversed,
             DriveConstants.CANCoderID1);
 
     public static final SwerveModule frontRight = new SwerveModule(
-            DriveConstants.kFrontRightDriveMotorPort,
-            DriveConstants.kFrontRightSteeringMotorPort,
+            1,
+            "Front Right", 
+            DriveConstants.kFrontRightDriveMotorId,
+            DriveConstants.kFrontRightSteeringMotorId, 
             DriveConstants.kFrontRightDriveEncoderReversed,
             DriveConstants.kFrontRightSteeringEncoderReversed,
-            DriveConstants.kFrontRightDriveAbsoluteEncoderPort,
+            DriveConstants.kFrontRightDriveAbsoluteEncoderId,
             DriveConstants.kFrontRightDriveAbsoluteEncoderOffsetRad,
             DriveConstants.kFrontRightDriveAbsoluteEncoderReversed,
             DriveConstants.CANCoderID2);
 
     private static final SwerveModule backLeft = new SwerveModule(
-            DriveConstants.kBackLeftDriveMotorPort,
-            DriveConstants.kBackLeftSteeringMotorPort,
+            3,
+            "Back Left", 
+            DriveConstants.kBackLeftDriveMotorId,
+            DriveConstants.kBackLeftSteeringMotorId, 
             DriveConstants.kBackLeftDriveEncoderReversed,
             DriveConstants.kBackLeftSteeringEncoderReversed,
-            DriveConstants.kBackLeftDriveAbsoluteEncoderPort,
+            DriveConstants.kBackLeftDriveAbsoluteEncoderId,
             DriveConstants.kBackLeftDriveAbsoluteEncoderOffsetRad,
             DriveConstants.kBackLeftDriveAbsoluteEncoderReversed,
             DriveConstants.CANCoderID3);
 
     private static final SwerveModule backRight = new SwerveModule(
-            DriveConstants.kBackRightDriveMotorPort,
-            DriveConstants.kBackRightSteeringMotorPort,
+            2,
+            "Back Right", 
+            DriveConstants.kBackRightDriveMotorId,
+            DriveConstants.kBackRightSteeringMotorId,
             DriveConstants.kBackRightDriveEncoderReversed,
             DriveConstants.kBackRightSteeringEncoderReversed,
-            DriveConstants.kBackRightDriveAbsoluteEncoderPort,
+            DriveConstants.kBackRightDriveAbsoluteEncoderId,
             DriveConstants.kBackRightDriveAbsoluteEncoderOffsetRad,
             DriveConstants.kBackRightDriveAbsoluteEncoderReversed,
             DriveConstants.CANCoderID4);
