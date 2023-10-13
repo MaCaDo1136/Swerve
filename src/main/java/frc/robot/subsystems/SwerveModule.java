@@ -28,27 +28,24 @@ public class SwerveModule {
 
     private final PIDController steeringPIDController;
 
-    private final AnalogInput absoluteEncoder;
-    private final boolean absoluteEncoderReversed;
-    private final double absoluteEncoderOffsetRad; 
+    private final boolean CANCoderReversed;
+    private final double CANCoderOffsetRad; 
 
 
-    public SwerveModule(int moduleNumber, String moduleName, int driveMotorId, int steeringMotorId, boolean driveMotorReversed, boolean steeringMotorReversed, int absoluteEncoderId, double absoluteEncoderOffset, boolean absoluteEncoderReversed, int enconderId) {
+    public SwerveModule(int moduleNumber, String moduleName, int driveMotorId, int steeringMotorId, boolean driveMotorReversed, boolean steeringMotorReversed, int CANCoderId, double CANCoderOffset, boolean CANCoderReversed) {
         
         this.moduleNumber = moduleNumber;
         this.moduleName = moduleName;
      
-        this.absoluteEncoderOffsetRad = absoluteEncoderOffset;
-        this.absoluteEncoderReversed = absoluteEncoderReversed;
-        absoluteEncoder = (AnalogInput) new edu.wpi.first.wpilibj.AnalogInput(absoluteEncoderId);
+        this.CANCoderOffsetRad = CANCoderOffset;
+        this.CANCoderReversed = CANCoderReversed;
+        encoder1 = new CANCoder(CANCoderId);
 
         driveMotor = new CANSparkMax(driveMotorId, MotorType.kBrushless);
         steeringMotor = new CANSparkMax(steeringMotorId, MotorType.kBrushless);
 
         driveMotor.setInverted(driveMotorReversed);
         steeringMotor.setInverted(steeringMotorReversed);
-
-        encoder1 = new CANCoder(enconderId);
 
         driveEncoder = driveMotor.getEncoder();
         steeringEncoder = steeringMotor.getEncoder();
@@ -77,13 +74,13 @@ public class SwerveModule {
     public double getSteeringVelocity() {
         return steeringEncoder.getVelocity();
     }
-    public double getAbsoluteEncoderDegrees() {
-        return encoder1.getAbsolutePosition();
+    public double getCANCoderDegrees() {
+        return encoder1.getPosition();
     }
     //Reseteo de encoders
     public void resetEncoders() {
         driveEncoder.setPosition(0);    
-        steeringEncoder.setPosition(getAbsoluteEncoderDegrees());
+        steeringEncoder.setPosition(getCANCoderDegrees());
     }
     //PID
     public SwerveModuleState getState() { 
@@ -101,8 +98,8 @@ public class SwerveModule {
         
         driveMotor.set(state.speedMetersPerSecond / DriveConstants.kPhysicalMaxSpeedMetersPerSecond);
         steeringMotor.set(steeringPIDController.calculate(getSteeringPosition(), state.angle.getDegrees()));
-        //en la siguiente linea le pique a: add cast to 'absoluteEncoder' si no jala, nomas es de quitar: ((edu.wpi.first.wpilibj.AnalogInput) absoluteEncoder) y poner solo: absoluteEncoder
-        SmartDashboard.putString("Swerve[" + ((edu.wpi.first.wpilibj.AnalogInput) absoluteEncoder).getChannel() + "] state", state.toString());
+       
+        SmartDashboard.putString("Swerve[" + (conceder.getCANCoder()).getChannel() + "] state", state.toString());
     }
     public void stop() {
         driveMotor.set(0);

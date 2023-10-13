@@ -17,10 +17,10 @@ public class SwerveSubsystem extends SubsystemBase {
             DriveConstants.kFrontLeftSteeringMotorId, 
             DriveConstants.kFrontLeftDriveEncoderReversed,
             DriveConstants.kFrontLeftSteeringEncoderReversed,
-            DriveConstants.kFrontLeftDriveAbsoluteEncoderId,
-            DriveConstants.kFrontLeftDriveAbsoluteEncoderOffsetRad,
-            DriveConstants.kFrontLeftDriveAbsoluteEncoderReversed,
-            DriveConstants.CANCoderID1);
+            DriveConstants.kFrontLeftDriveCANCoderId,
+            DriveConstants.kFrontLeftDriveCANCoderOffsetRad,
+            DriveConstants.kFrontLeftDriveCANCoderReversed
+            );
 
     public static final SwerveModule frontRight = new SwerveModule(
             1,
@@ -29,10 +29,10 @@ public class SwerveSubsystem extends SubsystemBase {
             DriveConstants.kFrontRightSteeringMotorId, 
             DriveConstants.kFrontRightDriveEncoderReversed,
             DriveConstants.kFrontRightSteeringEncoderReversed,
-            DriveConstants.kFrontRightDriveAbsoluteEncoderId,
-            DriveConstants.kFrontRightDriveAbsoluteEncoderOffsetRad,
-            DriveConstants.kFrontRightDriveAbsoluteEncoderReversed,
-            DriveConstants.CANCoderID2);
+            DriveConstants.kFrontRightDriveCANCoderId,
+            DriveConstants.kFrontRightDriveCANCoderOffsetRad,
+            DriveConstants.kFrontRightDriveCANCoderReversed
+            );
 
     private static final SwerveModule backLeft = new SwerveModule(
             3,
@@ -41,10 +41,10 @@ public class SwerveSubsystem extends SubsystemBase {
             DriveConstants.kBackLeftSteeringMotorId, 
             DriveConstants.kBackLeftDriveEncoderReversed,
             DriveConstants.kBackLeftSteeringEncoderReversed,
-            DriveConstants.kBackLeftDriveAbsoluteEncoderId,
-            DriveConstants.kBackLeftDriveAbsoluteEncoderOffsetRad,
-            DriveConstants.kBackLeftDriveAbsoluteEncoderReversed,
-            DriveConstants.CANCoderID3);
+            DriveConstants.kBackLeftDriveCANCoderId,
+            DriveConstants.kBackLeftDriveCANCoderOffsetRad,
+            DriveConstants.kBackLeftDriveCANCoderReversed
+            );
 
     private static final SwerveModule backRight = new SwerveModule(
             2,
@@ -53,10 +53,10 @@ public class SwerveSubsystem extends SubsystemBase {
             DriveConstants.kBackRightSteeringMotorId,
             DriveConstants.kBackRightDriveEncoderReversed,
             DriveConstants.kBackRightSteeringEncoderReversed,
-            DriveConstants.kBackRightDriveAbsoluteEncoderId,
-            DriveConstants.kBackRightDriveAbsoluteEncoderOffsetRad,
-            DriveConstants.kBackRightDriveAbsoluteEncoderReversed,
-            DriveConstants.CANCoderID4);
+            DriveConstants.kBackRightDriveCANCoderId,
+            DriveConstants.kBackRightDriveCANCoderOffsetRad,
+            DriveConstants.kBackRightDriveCANCoderReversed
+            );
 
  
 

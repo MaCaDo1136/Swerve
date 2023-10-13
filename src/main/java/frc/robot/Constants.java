@@ -32,10 +32,7 @@ public final class Constants {
                                 new Translation2d(-kWheelBase / 2, -kTrackWidth / 2),
                                 new Translation2d(-kWheelBase / 2, kTrackWidth / 2));
 
-                public static final int CANCoderID1 = 0;
-                public static final int CANCoderID2 = 1;
-                public static final int CANCoderID3 = 2;
-                public static final int CANCoderID4 = 3;
+                
 
                 public static final int kFrontLeftDriveMotorId = 11;
                 public static final int kBackLeftDriveMotorId = 8;
@@ -57,20 +54,20 @@ public final class Constants {
                 public static final boolean kFrontRightDriveEncoderReversed = false;
                 public static final boolean kBackRightDriveEncoderReversed = false;
 
-                public static final int kFrontLeftDriveAbsoluteEncoderId = 12;
-                public static final int kBackLeftDriveAbsoluteEncoderId = 9;
-                public static final int kFrontRightDriveAbsoluteEncoderId = 3;
-                public static final int kBackRightDriveAbsoluteEncoderId = 6;
+                public static final int kFrontLeftDriveCANCoderId = 12;
+                public static final int kFrontRightDriveCANCoderId = 3;
+                public static final int kBackLeftDriveCANCoderId = 9;
+                public static final int kBackRightDriveCANCoderId = 6;
 
-                public static final boolean kFrontLeftDriveAbsoluteEncoderReversed = false;
-                public static final boolean kBackLeftDriveAbsoluteEncoderReversed = false;
-                public static final boolean kFrontRightDriveAbsoluteEncoderReversed = false;
-                public static final boolean kBackRightDriveAbsoluteEncoderReversed = false;
+                public static final boolean kFrontLeftDriveCANCoderReversed = false;
+                public static final boolean kBackLeftDriveCANCoderReversed = false;
+                public static final boolean kFrontRightDriveCANCoderReversed = false;
+                public static final boolean kBackRightDriveCANCoderReversed = false;
 
-                public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = -0.254;
-                public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = -1.252;
-                public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = -1.816;
-                public static final double kBackRightDriveAbsoluteEncoderOffsetRad = -4.811;
+                public static final double kFrontLeftDriveCANCoderOffsetRad = -0.254;
+                public static final double kBackLeftDriveCANCoderOffsetRad = -1.252;
+                public static final double kFrontRightDriveCANCoderOffsetRad = -1.816;
+                public static final double kBackRightDriveCANCoderOffsetRad = -4.811;
 
                 public static final double kPhysicalMaxSpeedMetersPerSecond = 5;
                 public static final double kPhysicalMaxAngularSpeedRadiansPerSecond = 2 * 2 * Math.PI;
@@ -99,12 +96,13 @@ public final class Constants {
                                                 kMaxAngularAccelerationRadiansPerSecondSquared);
         }
         //constantes del brazo
-        public static final class BrazoConstants {
-                public static final int kBrazoMotorId = 17;
-                public static final int CANCoderID5 = 16;
-                public static final int kBrazoAbsoluteEncoderId = 18;
+        public static final class PivoteConstants {
+                public static final int kPivoteMotorId = 17;
+                public static final int kPivoteAbsoluteEncoderId = 18;
 
-                public static final double kPBrazo = 0.1;
+                public static final double kPivoteP = 0.1;
+                public static final double kPivoteI = 0;
+                public static final double kPivoteD = 0;
 
                 public static final boolean absoluteEncoderReversedBrazo = false;
 
