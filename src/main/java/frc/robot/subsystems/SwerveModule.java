@@ -98,7 +98,7 @@ public class SwerveModule {
         
         driveMotor.set(state.speedMetersPerSecond / DriveConstants.kPhysicalMaxSpeedMetersPerSecond);
         steeringMotor.set(steeringPIDController.calculate(getSteeringPosition(), state.angle.getDegrees()));
-       
+
         SmartDashboard.putString("Swerve[" + (conceder.getCANCoder()).getChannel() + "] state", state.toString());
     }
     public void stop() {

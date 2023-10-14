@@ -95,7 +95,7 @@ public final class Constants {
                                                 kMaxAngularSpeedRadiansPerSecond,
                                                 kMaxAngularAccelerationRadiansPerSecondSquared);
         }
-        //constantes del brazo
+        //constantes del pivote
         public static final class PivoteConstants {
                 public static final int kPivoteMotorId = 17;
                 public static final int kPivoteAbsoluteEncoderId = 18;
@@ -104,10 +104,18 @@ public final class Constants {
                 public static final double kPivoteI = 0;
                 public static final double kPivoteD = 0;
 
-                public static final boolean absoluteEncoderReversedBrazo = false;
+                public static final boolean absoluteEncoderReversedPivote = false;
+                public static final boolean kPivoteInverted = false;
 
 
         }
+        //constantes del intake
+        public static final class IntakeConstants {
+                public static final int kIntakeMotorId = 16;
+
+                public static final boolean kIntakeInverted = false;
+        }
+
         // hay que checar esto por lo del control
         public static final class OIConstants {
                 public static final int kDriverControllerPort = 0;

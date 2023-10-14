@@ -16,8 +16,9 @@ public class RobotContainer {
   double rxJoystick = control1.getRightX();
   double ryJoystick = control1.getRightY();
 
+
   public RobotContainer() {
-    // joysticks y/o botones
+    // joysticks control 1
     swerveSubsystem.setDefaultCommand(new swerveJoysticksCmd(
         swerveSubsystem,
         () -> control1.getLeftX(),
@@ -26,6 +27,7 @@ public class RobotContainer {
         () -> control1.getLeftStickButtonPressed()));
     configureBindings();   
   }
+
 
   private void configureBindings() {
   }
