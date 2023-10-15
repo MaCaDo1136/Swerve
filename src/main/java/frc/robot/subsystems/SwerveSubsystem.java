@@ -18,7 +18,7 @@ public class SwerveSubsystem extends SubsystemBase {
             DriveConstants.kFrontLeftDriveEncoderReversed,
             DriveConstants.kFrontLeftSteeringEncoderReversed,
             DriveConstants.kFrontLeftDriveCANCoderId,
-            DriveConstants.kFrontLeftDriveCANCoderOffsetRad,
+            DriveConstants.kFrontLeftDriveCANCoderOffsetDegrees,
             DriveConstants.kFrontLeftDriveCANCoderReversed
             );
 
@@ -30,7 +30,7 @@ public class SwerveSubsystem extends SubsystemBase {
             DriveConstants.kFrontRightDriveEncoderReversed,
             DriveConstants.kFrontRightSteeringEncoderReversed,
             DriveConstants.kFrontRightDriveCANCoderId,
-            DriveConstants.kFrontRightDriveCANCoderOffsetRad,
+            DriveConstants.kFrontRightDriveCANCoderOffsetDegrees,
             DriveConstants.kFrontRightDriveCANCoderReversed
             );
 
@@ -42,7 +42,7 @@ public class SwerveSubsystem extends SubsystemBase {
             DriveConstants.kBackLeftDriveEncoderReversed,
             DriveConstants.kBackLeftSteeringEncoderReversed,
             DriveConstants.kBackLeftDriveCANCoderId,
-            DriveConstants.kBackLeftDriveCANCoderOffsetRad,
+            DriveConstants.kBackLeftDriveCANCoderOffsetDegrees,
             DriveConstants.kBackLeftDriveCANCoderReversed
             );
 
@@ -54,7 +54,7 @@ public class SwerveSubsystem extends SubsystemBase {
             DriveConstants.kBackRightDriveEncoderReversed,
             DriveConstants.kBackRightSteeringEncoderReversed,
             DriveConstants.kBackRightDriveCANCoderId,
-            DriveConstants.kBackRightDriveCANCoderOffsetRad,
+            DriveConstants.kBackRightDriveCANCoderOffsetDegrees,
             DriveConstants.kBackRightDriveCANCoderReversed
             );
 
@@ -71,8 +71,6 @@ public class SwerveSubsystem extends SubsystemBase {
             } catch (Exception e) {
             }
         }).start();
-
-
     }
 
     public void zeroHeading() {

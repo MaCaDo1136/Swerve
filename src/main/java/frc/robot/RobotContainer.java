@@ -1,6 +1,11 @@
 package frc.robot;
 
+import frc.robot.Constants.ControllerConstants;
+import frc.robot.commands.IntakeCmd;
+import frc.robot.commands.PivoteCmd;
 import frc.robot.commands.swerveJoysticksCmd;
+import frc.robot.subsystems.PivoteSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.SwerveSubsystem;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -10,12 +15,22 @@ public class RobotContainer {
 
   private final SwerveSubsystem swerveSubsystem = new SwerveSubsystem();
 
-  private final XboxController control1 = new XboxController(0);
+  private final XboxController control1 = new XboxController(ControllerConstants.kDriver1ControllerPort);
   double lxJoystick = control1.getLeftX();
   double lyJoystick = control1.getLeftY();
   double rxJoystick = control1.getRightX();
   double ryJoystick = control1.getRightY();
 
+
+
+  private final PivoteSubsystem pivoteSubsystem = new PivoteSubsystem();
+  private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+
+  private final XboxController control2 = new XboxController(ControllerConstants.kDriver2ControllerPort);
+  double lTrigger = control2.getLeftTriggerAxis();
+  double rTrigger = control2.getRightTriggerAxis();
+  boolean aButton = control2.getAButton();
+  boolean bButton = control2.getBButton();
 
   public RobotContainer() {
     // joysticks control 1
@@ -23,10 +38,26 @@ public class RobotContainer {
         swerveSubsystem,
         () -> control1.getLeftX(),
         () -> control1.getLeftY(),
+        
         () -> control1.getRightX(),
         () -> control1.getLeftStickButtonPressed()));
-    configureBindings();   
+    configureBindings(); 
+    
+    // Pivote control 2
+    pivoteSubsystem.setDefaultCommand(new PivoteCmd(
+      pivoteSubsystem,
+      () -> control2.getLeftTriggerAxis(),
+      () -> control2.getRightTriggerAxis()));
+      configureBindings();
+    
+    // Intake control 2
+     intakeSubsystem.setDefaultCommand(new IntakeCmd(
+      intakeSubsystem,
+      () -> control2.getAButton(),
+      () -> control2.getBButton()));
+      configureBindings();
   }
+
 
 
   private void configureBindings() {

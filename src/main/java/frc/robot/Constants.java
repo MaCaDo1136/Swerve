@@ -6,15 +6,20 @@ import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
 
 public final class Constants {
+        public static class ControllerConstants {
+                public static final int kDriver1ControllerPort = 0;
+                public static final int kDriver2ControllerPort = 1;
+        }
+
         public static class ModuleConstants {
                 public static final double kWheelDiameterMeters = Units.inchesToMeters(4);
                 public static final double kDriveMotorGearRatio = 14 / 15;
                 public static final double kSteeringMotorGearRatio = 10 / 9;
                 public static final double kDriveEncoderRot2Meter = kDriveMotorGearRatio * Math.PI
                                 * kWheelDiameterMeters;
-                public static final double kSteeringEncoderRot2Rad = kSteeringMotorGearRatio * 2 * Math.PI;
+                public static final double kSteeringEncoderRot2Degrees = kSteeringMotorGearRatio * 2 * Math.PI;
                 public static final double kDriveEncoderRPM2MeterPerSec = kDriveEncoderRot2Meter / 60;
-                public static final double kSteeringEncoderRPM2RadPerSec = kSteeringEncoderRot2Rad / 60;
+                public static final double kSteeringEncoderRPM2DegreesPerSec = kSteeringEncoderRot2Degrees / 60;
                 public static final double kPSteering = 0.5;
         }
         // hay que revisar esto
@@ -64,17 +69,17 @@ public final class Constants {
                 public static final boolean kFrontRightDriveCANCoderReversed = false;
                 public static final boolean kBackRightDriveCANCoderReversed = false;
 
-                public static final double kFrontLeftDriveCANCoderOffsetRad = -0.254;
-                public static final double kBackLeftDriveCANCoderOffsetRad = -1.252;
-                public static final double kFrontRightDriveCANCoderOffsetRad = -1.816;
-                public static final double kBackRightDriveCANCoderOffsetRad = -4.811;
+                public static final double kFrontLeftDriveCANCoderOffsetDegrees = 0;
+                public static final double kBackLeftDriveCANCoderOffsetDegrees = 0;
+                public static final double kFrontRightDriveCANCoderOffsetDegrees = 0;
+                public static final double kBackRightDriveCANCoderOffsetDegrees = 0;
 
                 public static final double kPhysicalMaxSpeedMetersPerSecond = 5;
-                public static final double kPhysicalMaxAngularSpeedRadiansPerSecond = 2 * 2 * Math.PI;
+                public static final double kPhysicalMaxAngularSpeedDegreesPerSecond = 2 * 2 * Math.PI;
 
                 public static final double kTeleDriveMaxSpeedMetersPerSecond = kPhysicalMaxSpeedMetersPerSecond / 4;
-                public static final double kTeleDriveMaxAngularSpeedRadiansPerSecond = //
-                                kPhysicalMaxAngularSpeedRadiansPerSecond / 4;
+                public static final double kTeleDriveMaxAngularSpeedDegreesPerSecond = //
+                                kPhysicalMaxAngularSpeedDegreesPerSecond / 4;
                 public static final double kTeleDriveMaxAccelerationUnitsPerSecond = 3;
                 public static final double kTeleDriveMaxAngularAccelerationUnitsPerSecond = 3;
         }
@@ -82,18 +87,18 @@ public final class Constants {
         public static final class AutoConstants {
                 public static final double kMaxSpeedMetersPerSecond = DriveConstants.kPhysicalMaxSpeedMetersPerSecond
                                 / 4;
-                public static final double kMaxAngularSpeedRadiansPerSecond = //
-                                DriveConstants.kPhysicalMaxAngularSpeedRadiansPerSecond / 10;
+                public static final double kMaxAngularSpeedDegreesPerSecond = //
+                                DriveConstants.kPhysicalMaxAngularSpeedDegreesPerSecond / 10;
                 public static final double kMaxAccelerationMetersPerSecondSquared = 3;
-                public static final double kMaxAngularAccelerationRadiansPerSecondSquared = Math.PI / 4;
+                public static final double kMaxAngularAccelerationDegreesPerSecondSquared = Math.PI / 4;
                 public static final double kPXController = 1.5;
                 public static final double kPYController = 1.5;
                 public static final double kPThetaController = 3;
 
                 public static final TrapezoidProfile.Constraints kThetaControllerConstraints = //
                                 new TrapezoidProfile.Constraints(
-                                                kMaxAngularSpeedRadiansPerSecond,
-                                                kMaxAngularAccelerationRadiansPerSecondSquared);
+                                                kMaxAngularSpeedDegreesPerSecond,
+                                                kMaxAngularAccelerationDegreesPerSecondSquared);
         }
         //constantes del pivote
         public static final class PivoteConstants {
