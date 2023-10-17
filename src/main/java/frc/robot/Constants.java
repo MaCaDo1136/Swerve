@@ -49,15 +49,15 @@ public final class Constants {
                 public static final int kFrontRightSteeringMotorId = 1;
                 public static final int kBackRightSteeringMotorId = 4;
 
-                public static final boolean kFrontLeftSteeringEncoderReversed = true;
-                public static final boolean kBackLeftSteeringEncoderReversed = true;
-                public static final boolean kFrontRightSteeringEncoderReversed = true;
-                public static final boolean kBackRightSteeringEncoderReversed = true;
+                public static final boolean kFrontLeftSteeringEncoderReversed = false;
+                public static final boolean kBackLeftSteeringEncoderReversed = false;
+                public static final boolean kFrontRightSteeringEncoderReversed = false;
+                public static final boolean kBackRightSteeringEncoderReversed = false;
 
                 public static final boolean kFrontLeftDriveEncoderReversed = true;
                 public static final boolean kBackLeftDriveEncoderReversed = true;
-                public static final boolean kFrontRightDriveEncoderReversed = false;
-                public static final boolean kBackRightDriveEncoderReversed = false;
+                public static final boolean kFrontRightDriveEncoderReversed = true;
+                public static final boolean kBackRightDriveEncoderReversed = true;
 
                 public static final int kFrontLeftDriveCANCoderId = 12;
                 public static final int kFrontRightDriveCANCoderId = 3;
@@ -69,10 +69,10 @@ public final class Constants {
                 public static final boolean kFrontRightDriveCANCoderReversed = false;
                 public static final boolean kBackRightDriveCANCoderReversed = false;
 
-                public static final double kFrontLeftDriveCANCoderOffsetDegrees = 0;
-                public static final double kBackLeftDriveCANCoderOffsetDegrees = 0;
-                public static final double kFrontRightDriveCANCoderOffsetDegrees = 0;
-                public static final double kBackRightDriveCANCoderOffsetDegrees = 0;
+                public static final double kFrontLeftDriveCANCoderOffsetDegrees = 53.613;
+                public static final double kBackLeftDriveCANCoderOffsetDegrees = 109.688;
+                public static final double kFrontRightDriveCANCoderOffsetDegrees = 202.061;
+                public static final double kBackRightDriveCANCoderOffsetDegrees = 41.660;
 
                 public static final double kPhysicalMaxSpeedMetersPerSecond = 5;
                 public static final double kPhysicalMaxAngularSpeedDegreesPerSecond = 2 * 2 * Math.PI;
@@ -100,6 +100,7 @@ public final class Constants {
                                                 kMaxAngularSpeedDegreesPerSecond,
                                                 kMaxAngularAccelerationDegreesPerSecondSquared);
         }
+       /*
         //constantes del pivote
         public static final class PivoteConstants {
                 public static final int kPivoteMotorId = 17;
@@ -120,7 +121,7 @@ public final class Constants {
 
                 public static final boolean kIntakeInverted = false;
         }
-
+*/
         // hay que checar esto por lo del control
         public static final class OIConstants {
                 public static final int kDriverControllerPort = 0;
