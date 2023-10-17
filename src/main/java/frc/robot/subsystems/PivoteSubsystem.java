@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+/*package frc.robot.subsystems;
 
 import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.CANSparkMax;
@@ -31,3 +31,4 @@ public class PivoteSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 }
+*/

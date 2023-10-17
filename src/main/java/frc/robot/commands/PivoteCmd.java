@@ -1,4 +1,4 @@
-package frc.robot.commands;
+/*  ackage frc.robot.commands;
 
 import java.util.function.Supplier;
 
@@ -34,14 +34,14 @@ public class PivoteCmd extends CommandBase {
   @Override
   public void execute() {
       //tomar datos de los triggers para el pivote
-      double pivotePositivo = l2Trigger.get();
-      double pivoteNegativo = r2Trigger.get();
+      double pivoteNegativo = l2Trigger.get();
+      double pivotePositivo = r2Trigger.get();
 
       //codigo para el pivote
       double pivotePower;
 
-      if (pivotePositivo >= 0.1 || pivoteNegativo <= 0.1) {
-        pivotePower = pivotePositivo + pivoteNegativo;
+      if (pivoteNegativo >= 0.1 || pivotePositivo >= 0.1) {
+        pivotePower = -(pivoteNegativo) + pivotePositivo;
       } else {
         pivotePower = 0;
       }
@@ -60,3 +60,4 @@ public class PivoteCmd extends CommandBase {
     return false;
   }
 }
+*/

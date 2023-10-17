@@ -68,7 +68,10 @@ public class swerveJoysticksCmd extends CommandBase {
 
     // pasarlo a las llantas
     SwerveSubsystem.setModulesStates(moduleStates);
+
+    System.out.println("HelloWorld");
   }
+
 
   @Override
   public void end(boolean interrupted) {

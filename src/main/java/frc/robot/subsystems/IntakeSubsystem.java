@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+/*package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -8,7 +8,7 @@ import frc.robot.Constants.ControllerConstants;
 import frc.robot.Constants.IntakeConstants;
 
 public class IntakeSubsystem extends SubsystemBase {
-  /** Creates a new IntakeSubsystem. */
+  // Creates a new IntakeSubsystem. 
   public IntakeSubsystem() {
     
     boolean ButtonA = driver2Controller.getAButton();
@@ -35,3 +35,4 @@ public void stopIntake() {
   intakeMotor.set(0);
   }
 }
+*/
